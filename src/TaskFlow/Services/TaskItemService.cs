@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TaskFlow.Models;
 
 namespace TaskFlow.Services;
@@ -44,4 +45,12 @@ public class TaskItemService
         return _tasks;
     }
 
+    public void UpdateTaskStatus(int id, TaskStatus newStatus)
+    {
+        var task = _tasks.FirstOrDefault(t => t.Id == id);
+        if (task == null)
+        {
+            throw new ArgumentException("Tarea no encontrada.");
+        }
+    }
 }

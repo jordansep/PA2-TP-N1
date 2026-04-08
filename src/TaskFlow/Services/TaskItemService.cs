@@ -7,7 +7,7 @@ public class TaskItemService
 {
     public void CreateTask(string title, string description, string responsible) //Método para crear una tarea con título, descripción y responsable
     {
-        int task = ListTask().Count(); //Obtenemos el número de tareas actuales para asignar un nuevo ID incremental
+        int tasks = ListTask().Count(); //Obtenemos el número de tareas actuales para asignar un nuevo ID incremental
         var newTask = new TaskItem
         {
             Id = tasks + 1, //Cuando agreguemos filemanager, tasks será la inyección de la base de datos, por ahora es la lista en memoria
@@ -21,9 +21,10 @@ public class TaskItemService
 
     public void CreateTask(string title, string responsible) //Sobrecarga del método CreateTask para permitir crear tareas sin descripción
     {
+        int tasks = ListTask().Count();
         var newTask = new TaskItem
         {
-            Id = tasks.Count > 0 ? tasks.Max(t => t.Id) + 1 : 1,
+            Id = tasks + 1,
             Title = title,
             Description = null,
             Responsible = responsible,

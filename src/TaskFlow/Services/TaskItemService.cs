@@ -5,13 +5,26 @@ namespace TaskFlow.Services;
 
 public class TaskItemService
 {
-    public void CreateTask(string title, string description, string responsible)
+    public void CreateTask(string title, string description, string responsible) //Método para crear una tarea con título, descripción y responsable
+    {
+        var newTask = new TaskItem
+        {
+            Id = tasks.Count > 0 ? tasks.Max(t => t.Id) + 1 : 1, //Cuando agreguemos filemanager, tasks será la inyección de la base de datos, por ahora es la lista en memoria
+            Title = title,
+            Description = description,
+            Responsible = responsible,
+            Status = TaskStatus.ToDo,
+            CreatedAt = DateTime.UtcNow
+        };
+    }
+
+    public void CreateTask(string title, string responsible) //Sobrecarga del método CreateTask para permitir crear tareas sin descripción
     {
         var newTask = new TaskItem
         {
             Id = tasks.Count > 0 ? tasks.Max(t => t.Id) + 1 : 1,
             Title = title,
-            Description = description,
+            Description = null,
             Responsible = responsible,
             Status = TaskStatus.ToDo,
             CreatedAt = DateTime.UtcNow

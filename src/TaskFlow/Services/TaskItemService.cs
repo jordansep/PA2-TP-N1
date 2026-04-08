@@ -5,6 +5,19 @@ namespace TaskFlow.Services;
 
 public class TaskItemService
 {
+    public void CreateTask(string title, string description, string responsible)
+    {
+        var newTask = new TaskItem
+        {
+            Id = tasks.Count > 0 ? tasks.Max(t => t.Id) + 1 : 1,
+            Title = title,
+            Description = description,
+            Responsible = responsible,
+            Status = TaskStatus.ToDo,
+            CreatedAt = DateTime.UtcNow
+        };
+    }
+
     private readonly List<TaskItem> _tasks = new List<TaskItem>
     {
         new TaskItem { Id = 1, Title = "Aprender GitFlow", Description = "Comprender cómo usar ramas de feature, develop y main", IsCompleted = false },

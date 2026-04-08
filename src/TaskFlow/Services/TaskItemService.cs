@@ -52,5 +52,8 @@ public class TaskItemService
         {
             throw new ArgumentException("Tarea no encontrada.");
         }
+        
+        task.Status = newStatus;
+        task.UpdatedAt = DateTime.UtcNow;
     }
 }

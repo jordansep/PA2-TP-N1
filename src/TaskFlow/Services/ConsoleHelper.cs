@@ -55,19 +55,32 @@ public class ConsoleHelper
           Console.Clear();
         Console.WriteLine("=== CREAR NUEVA TAREA ===");
     
-        Console.Write("Título: ");
-        string title = Console.ReadLine() ?? string.Empty;
-    
-        Console.Write("Descripción: ");
-        string description = Console.ReadLine() ?? string.Empty;
-    
-        Console.Write("Responsable: ");
-        string responsible = Console.ReadLine() ?? string.Empty;
+            Console.Write("Título: ");
+            string title = ValidateTaskInput(Console.ReadLine(), "título");
+
+            Console.Write("Descripción: ");
+            string description = Console.ReadLine() ?? string.Empty;
+
+            Console.Write("Responsable: ");
+            string responsible = ValidateTaskInput(Console.ReadLine(), "responsable");
+
 
         _service.CreateTask(title, description, responsible);
     
         Console.WriteLine("\n¡Tarea creada con éxito! Presione cualquier tecla para continuar...");
         Console.ReadKey();
+    }
+    public string ValidateTaskInput(string input, string fieldName)
+    {
+        // Método para validar la entrada del usuario al crear una tarea, asegurándose de que el título no esté vacío y que el responsable sea válido
+        while (string.IsNullOrWhiteSpace(input))
+        {
+            Console.WriteLine($"El {fieldName} no puede estar vacío. Por favor, ingrese un {fieldName} válido.");
+            Console.Write($"{fieldName}: ");
+            input = Console.ReadLine();
+        }
+        return input;
+
     }
     public void SelectTask()
     {
@@ -102,4 +115,5 @@ public class ConsoleHelper
         Console.ReadKey();
     }
     public static void UpdateTaskStatusFromConsole(){}
+
 }

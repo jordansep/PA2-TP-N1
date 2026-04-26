@@ -41,7 +41,7 @@ Para correr esta aplicación en tu entorno local, sigue estos pasos:
 - **Jeremias Marturano** - Rol: Developer
 - **Joaquin Ruiz** - Rol: Developer
 - **Gustavo Gutierrez** - Rol: Developer
-- **Leonardo Ormeño** - Rol: QA
+- **Tobias Tula** - Rol:
 ---
 
 *Primera entrega: Setup profesional del proyecto (Actividad N°1).*

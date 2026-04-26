@@ -64,6 +64,7 @@ public class ConsoleHelper
         Console.ReadKey();
     }
     public void EndApp(){}
+    public string ReadLine() => Console.ReadLine() ?? string.Empty;    
     private void CreateTaskFromConsole()
     {
         // Método para crear una tarea a través de la consola, solicitando título, descripción y responsable
@@ -71,13 +72,13 @@ public class ConsoleHelper
         ShowText("=== CREAR NUEVA TAREA ===");
     
             ShowText("Título: ");
-            string title = ValidateTaskInput(Console.ReadLine(), "título");
+            string title = ValidateTaskInput(ReadLine(), "título");
 
             ShowText("Descripción: ");
-            string description = Console.ReadLine() ?? string.Empty;
+            string description = ReadLine() ?? string.Empty;
 
             ShowText("Responsable: ");
-            string responsible = ValidateTaskInput(Console.ReadLine(), "responsable");
+            string responsible = ValidateTaskInput(ReadLine(), "responsable");
 
 
         _service.CreateTask(title, description, responsible);
@@ -92,7 +93,7 @@ public class ConsoleHelper
         {
             ShowText($"El {fieldName} no puede estar vacío. Por favor, ingrese un {fieldName} válido.");
             ShowTextWhitInput($"{fieldName}: ");
-            input = Console.ReadLine();
+            input = ReadLine();
         }
         return input;
 

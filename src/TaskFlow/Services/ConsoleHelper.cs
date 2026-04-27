@@ -98,10 +98,20 @@ public class ConsoleHelper
         return input;
 
     }
-    public void SelectTask()
+    public static void SelectTask()
     {
-       
+        Console.WriteLine("Por favor, introduzca el ID de la tarea a seleccionar:");
+        string input = Console.ReadLine();
+        if (int.TryParse(input, out int taskId))
+        {
+            Console.WriteLine($"Se ha seleccionado la tarea con ID: {taskId}");
+        }
+        else
+        {
+            Console.WriteLine("Entrada no válida. Por favor ingrese un número entero.");
+        }
     }
+
     public void ShowListOfTasks(){
         // Método para mostrar la lista de tareas en la consola, incluyendo título, responsable y estado
          Console.Clear();

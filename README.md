@@ -36,12 +36,11 @@ Para correr esta aplicación en tu entorno local, sigue estos pasos:
 
 ## 👥 Integrantes del Equipo
 
-- **Jordan Monier** - Rol: Tech-Leader
-- **Alejandro Luna** - Rol: Developer
-- **Jeremias Marturano** - Rol: Developer
-- **Joaquin Ruiz** - Rol: Developer
-- **Gustavo Gutierrez** - Rol: Developer
-- **Tobias Tula** - Rol:
+- **Alejandro Luna** - Rol: A discutir
+- **Jordan Monier** - Rol: A discutir
+- **Jeremias Marturano** - Rol: A discutir
+- **Joaquin Ruiz** - Rol: A discutir
+- **Ampliaremos el 5to...** - Rol: A discutir
 ---
 
 *Primera entrega: Setup profesional del proyecto (Actividad N°1).*
